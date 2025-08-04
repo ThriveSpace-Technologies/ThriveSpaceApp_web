@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Shape ThriveSpace - Quick 2-Minute Survey</title>
+    <meta name="description" content="Your opinion matters! Help us build the wellness platform you've been waiting for. Quick survey - big impact on ThriveSpace's future.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/survey.css">
+</head>
+<body>
+    <!-- Survey Hero Section -->
+    <div class="survey-hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                <span>2-Minute Survey</span>
+            </div>
+            <h1>🚀 Help Build the Future of Wellness</h1>
+            <p class="hero-subtitle">Your insights will directly shape ThriveSpace - the wellness platform that puts community first. Join <strong>500+ others</strong> who've already shared their vision!</p>
+            
+            <div class="benefits-list">
+                <div class="benefit">
+                    <i class="fas fa-gift"></i>
+                    <span>Get early access to ThriveSpace beta</span>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-trophy"></i>
+                    <span>Influence features you'll actually use</span>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-heart"></i>
+                    <span>Join a movement for healthier social media</span>
+                </div>
+            </div>
+
+            <button class="start-survey-btn" id="startSurveyBtn">
+                <span>Start Survey Now</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <div class="trust-indicators">
+                <div class="indicator">
+                    <i class="fas fa-lock"></i>
+                    <span>100% Anonymous</span>
+                </div>
+                <div class="indicator">
+                    <i class="fas fa-clock"></i>
+                    <span>Takes 2-3 Minutes</span>
+                </div>
+                <div class="indicator">
+                    <i class="fas fa-users"></i>
+                    <span>500+ Responses</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Survey Popup Modal -->
+    <div class="survey-modal" id="surveyModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="header-content">
+                    <h2>ThriveSpace Market Research</h2>
+                    <p>Help us build the wellness community you've been waiting for</p>
+                </div>
+                <button class="close-btn" id="closeBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="survey-progress">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text">
+                        Question <span id="currentQ">1</span> of <span id="totalQ">11</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="survey-content">
+                <form id="surveyForm">
+                    <!-- Section 1: Interest & Usage Assessment -->
+                    <div class="question-section active" data-section="1">
+                        <div class="section-header">
+                            <div class="section-badge">Interest & Usage</div>
+                            <div class="section-counter">1/4</div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>How frustrated are you with toxic and negative contents on Instagram and Facebook?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="social_frustration" value="extremely">
+                                    <div class="card-content">
+                                        <div class="emoji">😤</div>
+                                        <div class="text">
+                                            <strong>Extremely frustrated</strong>
+                                            <span>I actively avoid them</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="social_frustration" value="very">
+                                    <div class="card-content">
+                                        <div class="emoji">😔</div>
+                                        <div class="text">
+                                            <strong>Very frustrated</strong>
+                                            <span>It affects my motivation</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="social_frustration" value="somewhat">
+                                    <div class="card-content">
+                                        <div class="emoji">😐</div>
+                                        <div class="text">
+                                            <strong>Somewhat frustrated</strong>
+                                            <span>I notice the negativity</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="social_frustration" value="not_really">
+                                    <div class="card-content">
+                                        <div class="emoji">🤷</div>
+                                        <div class="text">
+                                            <strong>Not really frustrated</strong>
+                                            <span>I can filter it out</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="social_frustration" value="not_at_all">
+                                    <div class="card-content">
+                                        <div class="emoji">😊</div>
+                                        <div class="text">
+                                            <strong>Not frustrated at all</strong>
+                                            <span>I don't see this as an issue</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>Would you join a wellness platform that prioritizes community over likes?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="platform_interest" value="definitely_yes">
+                                    <div class="card-content">
+                                        <div class="emoji">🌟</div>
+                                        <div class="text">
+                                            <strong>Definitely yes!</strong>
+                                            <span>I've been looking for this</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="platform_interest" value="probably_yes">
+                                    <div class="card-content">
+                                        <div class="emoji">👍</div>
+                                        <div class="text">
+                                            <strong>Probably yes</strong>
+                                            <span>Sounds appealing</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="platform_interest" value="maybe">
+                                    <div class="card-content">
+                                        <div class="emoji">🤔</div>
+                                        <div class="text">
+                                            <strong>Maybe</strong>
+                                            <span>Depends on execution</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="platform_interest" value="probably_not">
+                                    <div class="card-content">
+                                        <div class="emoji">👎</div>
+                                        <div class="text">
+                                            <strong>Probably not</strong>
+                                            <span>Happy with current platforms</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>How likely would you use an app combining social + wellness tracking + trainer access?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="app_likelihood" value="extremely">
+                                    <div class="card-content">
+                                        <div class="emoji">📱</div>
+                                        <div class="text">
+                                            <strong>Extremely likely</strong>
+                                            <span>Would use daily</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="app_likelihood" value="very">
+                                    <div class="card-content">
+                                        <div class="emoji">💪</div>
+                                        <div class="text">
+                                            <strong>Very likely</strong>
+                                            <span>Would use regularly</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="app_likelihood" value="somewhat">
+                                    <div class="card-content">
+                                        <div class="emoji">🔍</div>
+                                        <div class="text">
+                                            <strong>Somewhat likely</strong>
+                                            <span>Would try it out</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="app_likelihood" value="not_very">
+                                    <div class="card-content">
+                                        <div class="emoji">👀</div>
+                                        <div class="text">
+                                            <strong>Not very likely</strong>
+                                            <span>Might check occasionally</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>If ThriveSpace offered structured learning programs (yoga, nutrition, mental wellness), how often would you engage?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="learning_engagement" value="daily">
+                                    <div class="card-content">
+                                        <div class="emoji">📚</div>
+                                        <div class="text">
+                                            <strong>Daily</strong>
+                                            <span>Actively learning new skills</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="learning_engagement" value="several_times_week">
+                                    <div class="card-content">
+                                        <div class="emoji">🎯</div>
+                                        <div class="text">
+                                            <strong>Several times per week</strong>
+                                            <span>Enjoy structured learning</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="learning_engagement" value="weekly">
+                                    <div class="card-content">
+                                        <div class="emoji">⏰</div>
+                                        <div class="text">
+                                            <strong>Weekly</strong>
+                                            <span>When I have time to focus</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="learning_engagement" value="monthly">
+                                    <div class="card-content">
+                                        <div class="emoji">🌙</div>
+                                        <div class="text">
+                                            <strong>Monthly</strong>
+                                            <span>Occasionally interested</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="learning_engagement" value="rarely">
+                                    <div class="card-content">
+                                        <div class="emoji">🤷</div>
+                                        <div class="text">
+                                            <strong>Rarely</strong>
+                                            <span>Prefer to learn elsewhere</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Section 2: Feature Requests -->
+                    <div class="question-section" data-section="2">
+                        <div class="section-header">
+                            <div class="section-badge">Feature Requests</div>
+                            <div class="section-counter">2/4</div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>Which 2 features would be most valuable to you? (Select exactly 2)</h3>
+                            <div class="options-grid checkbox-grid">
+                                <label class="option-card checkbox-option">
+                                    <input type="checkbox" name="valuable_features" value="ai_recommendations">
+                                    <div class="card-content">
+                                        <div class="emoji">🤖</div>
+                                        <div class="text">
+                                            <strong>AI-powered recommendations</strong>
+                                            <span>Personalized workout and nutrition</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card checkbox-option">
+                                    <input type="checkbox" name="valuable_features" value="live_classes">
+                                    <div class="card-content">
+                                        <div class="emoji">🎥</div>
+                                        <div class="text">
+                                            <strong>Live group fitness classes</strong>
+                                            <span>Workshops with certified trainers</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card checkbox-option">
+                                    <input type="checkbox" name="valuable_features" value="challenges">
+                                    <div class="card-content">
+                                        <div class="emoji">🏆</div>
+                                        <div class="text">
+                                            <strong>Wellness challenges</strong>
+                                            <span>Competitions with real rewards</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card checkbox-option">
+                                    <input type="checkbox" name="valuable_features" value="mental_health">
+                                    <div class="card-content">
+                                        <div class="emoji">🧠</div>
+                                        <div class="text">
+                                            <strong>Mental health support</strong>
+                                            <span>Anonymous groups and counseling</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>What content would engage you most in a wellness community?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="engaging_content" value="transformation_stories">
+                                    <div class="card-content">
+                                        <div class="emoji">⭐</div>
+                                        <div class="text">
+                                            <strong>Transformation stories</strong>
+                                            <span>Real user progress celebrations</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="engaging_content" value="expert_content">
+                                    <div class="card-content">
+                                        <div class="emoji">👨‍⚕️</div>
+                                        <div class="text">
+                                            <strong>Expert-led education</strong>
+                                            <span>Nutrition tips, exercise techniques</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="engaging_content" value="community_challenges">
+                                    <div class="card-content">
+                                        <div class="emoji">👥</div>
+                                        <div class="text">
+                                            <strong>Community challenges</strong>
+                                            <span>Group accountability programs</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="engaging_content" value="mindfulness">
+                                    <div class="card-content">
+                                        <div class="emoji">🧘</div>
+                                        <div class="text">
+                                            <strong>Mindfulness resources</strong>
+                                            <span>Meditation, stress management</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Problem-Solution Fit -->
+                    <div class="question-section" data-section="3">
+                        <div class="section-header">
+                            <div class="section-badge">Problem-Solution Fit</div>
+                            <div class="section-counter">3/4</div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>What's your biggest frustration with existing fitness apps/platforms?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="biggest_frustration" value="appearance_focused">
+                                    <div class="card-content">
+                                        <div class="emoji">👁️</div>
+                                        <div class="text">
+                                            <strong>Too focused on appearance</strong>
+                                            <span>Rather than overall health</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="biggest_frustration" value="lack_community">
+                                    <div class="card-content">
+                                        <div class="emoji">💔</div>
+                                        <div class="text">
+                                            <strong>Lack of genuine community</strong>
+                                            <span>No meaningful connections</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="biggest_frustration" value="toxic_culture">
+                                    <div class="card-content">
+                                        <div class="emoji">☠️</div>
+                                        <div class="text">
+                                            <strong>Toxic comparison culture</strong>
+                                            <span>Unrealistic body standards</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="biggest_frustration" value="motivation_issues">
+                                    <div class="card-content">
+                                        <div class="emoji">😞</div>
+                                        <div class="text">
+                                            <strong>Staying motivated</strong>
+                                            <span>Difficulty with accountability</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>How well would ThriveSpace solve your wellness & social media challenges?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="solution_fit" value="perfectly">
+                                    <div class="card-content">
+                                        <div class="emoji">🎯</div>
+                                        <div class="text">
+                                            <strong>Perfectly</strong>
+                                            <span>Addresses all my concerns</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="solution_fit" value="very_well">
+                                    <div class="card-content">
+                                        <div class="emoji">✅</div>
+                                        <div class="text">
+                                            <strong>Very well</strong>
+                                            <span>Would solve most problems</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="solution_fit" value="somewhat_well">
+                                    <div class="card-content">
+                                        <div class="emoji">👍</div>
+                                        <div class="text">
+                                            <strong>Somewhat well</strong>
+                                            <span>Would help with some issues</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="solution_fit" value="unsure">
+                                    <div class="card-content">
+                                        <div class="emoji">🤷</div>
+                                        <div class="text">
+                                            <strong>Unsure</strong>
+                                            <span>Need to see it in action first</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Demographics -->
+                    <div class="question-section" data-section="4">
+                        <div class="section-header">
+                            <div class="section-badge">About You</div>
+                            <div class="section-counter">4/4</div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>What's your age range?</h3>
+                            <div class="options-grid age-grid">
+                                <label class="option-card age-option">
+                                    <input type="radio" name="age_range" value="18-24">
+                                    <div class="card-content">
+                                        <div class="text">18-24</div>
+                                    </div>
+                                </label>
+                                <label class="option-card age-option">
+                                    <input type="radio" name="age_range" value="25-34">
+                                    <div class="card-content">
+                                        <div class="text">25-34</div>
+                                    </div>
+                                </label>
+                                <label class="option-card age-option">
+                                    <input type="radio" name="age_range" value="35-44">
+                                    <div class="card-content">
+                                        <div class="text">35-44</div>
+                                    </div>
+                                </label>
+                                <label class="option-card age-option">
+                                    <input type="radio" name="age_range" value="45-54">
+                                    <div class="card-content">
+                                        <div class="text">45-54</div>
+                                    </div>
+                                </label>
+                                <label class="option-card age-option">
+                                    <input type="radio" name="age_range" value="55+">
+                                    <div class="card-content">
+                                        <div class="text">55+</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>How do you currently find fitness and wellness information?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="social_media">
+                                    <div class="card-content">
+                                        <div class="emoji">📱</div>
+                                        <div class="text">
+                                            <strong>Social media</strong>
+                                            <span>Instagram, TikTok, YouTube</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="apps_websites">
+                                    <div class="card-content">
+                                        <div class="emoji">💻</div>
+                                        <div class="text">
+                                            <strong>Apps and websites</strong>
+                                            <span>Fitness apps, wellness sites</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="professionals">
+                                    <div class="card-content">
+                                        <div class="emoji">🏋️</div>
+                                        <div class="text">
+                                            <strong>Fitness professionals</strong>
+                                            <span>Personal trainers, coaches</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="friends_family">
+                                    <div class="card-content">
+                                        <div class="emoji">👥</div>
+                                        <div class="text">
+                                            <strong>Friends and family</strong>
+                                            <span>Personal recommendations</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="traditional_media">
+                                    <div class="card-content">
+                                        <div class="emoji">📚</div>
+                                        <div class="text">
+                                            <strong>Traditional media</strong>
+                                            <span>Books, magazines, TV</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="info_source" value="medical_professionals">
+                                    <div class="card-content">
+                                        <div class="emoji">🏥</div>
+                                        <div class="text">
+                                            <strong>Medical professionals</strong>
+                                            <span>Healthcare providers</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <h3>What's your primary wellness goal for the next 12 months?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="wellness_goal" value="weight_loss">
+                                    <div class="card-content">
+                                        <div class="emoji">⚖️</div>
+                                        <div class="text">
+                                            <strong>Weight loss</strong>
+                                            <span>Body composition improvement</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="wellness_goal" value="strength_building">
+                                    <div class="card-content">
+                                        <div class="emoji">💪</div>
+                                        <div class="text">
+                                            <strong>Building strength</strong>
+                                            <span>Muscle mass development</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="wellness_goal" value="mental_health">
+                                    <div class="card-content">
+                                        <div class="emoji">🧠</div>
+                                        <div class="text">
+                                            <strong>Mental health</strong>
+                                            <span>Stress management improvement</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="wellness_goal" value="maintaining_health">
+                                    <div class="card-content">
+                                        <div class="emoji">🏥</div>
+                                        <div class="text">
+                                            <strong>Maintaining health</strong>
+                                            <span>Preventing illness</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-navigation">
+                        <button type="button" class="nav-btn prev-btn" id="prevBtn" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="nav-btn next-btn" id="nextBtn">
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" class="submit-btn" id="submitBtn" style="display: none;">
+                            🎉 Complete Survey
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-screen" id="successScreen" style="display: none;">
+                    <div class="success-content">
+                        <div class="success-icon">🎉</div>
+                        <h2>Thank You!</h2>
+                        <p>Your feedback is invaluable in creating ThriveSpace - a wellness community that truly serves your needs.</p>
+                        <div class="next-steps">
+                            <h4>What happens next?</h4>
+                            <ul>
+                                <li>✅ You're now on our early access list</li>
+                                <li>📧 We'll email you when ThriveSpace launches</li>
+                                <li>🏆 You'll get priority access to beta features</li>
+                            </ul>
+                        </div>
+                        <a href="index.html" class="back-btn">Back to ThriveSpace</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/survey.js"></script>
+</body>
+</html>
