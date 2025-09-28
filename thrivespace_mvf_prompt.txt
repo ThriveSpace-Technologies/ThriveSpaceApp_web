@@ -1,0 +1,107 @@
+You are a senior frontend designer-developer. Create a small, production-ready **Next.js + Tailwind CSS** theme and component kit for **ThriveSpace** (a friendly fitness & wellness platform) **inspired by** the broad look/feel of descript.com as of Sept 13, 2025 (clean black/white base, vivid blue accent, oversized hero, friendly microcopy, logo wall, simple section borders). **Do NOT copy their copy or proprietary visuals; write original text** and keep assets generic.
+
+This site’s goal is **Market Value Fit validation** (collect signal, not sell). **Remove** pricing, testimonials, and other conversion-heavy elements.
+
+## Tech
+- **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, **Lucide icons**.
+- **Accessibility first** (WCAG AA): semantic landmarks, `aria-*`, visible `:focus-visible` rings, keyboard traps for dialogs.
+- **Motion**: respectful defaults; full support for `prefers-reduced-motion`.
+
+## Core Objectives
+- Communicate the **problem** and **value proposition** crisply.
+- Show **who it’s for** (personas/use cases).
+- Let visitors **signal interest** fast: email waitlist + 1–2 question survey + optional feature upvote.
+- Offer a **lightweight demo feel** (static “floating card” visual).
+- Provide **privacy-first** trust cues without heavy legalese.
+
+## Deliverables (output as separate file blocks)
+1) `// FILE: tailwind.config.ts`  
+   Tokenized design system (colors, radii, shadows, spacing, motion), container widths, fluid type scale.
+2) `// FILE: app/globals.css`  
+   CSS variables, fluid typography via `clamp`, Inter via `@import`/`@font-face` (fallback `ui-sans-serif`), base resets, focus styles, selection color.
+3) `// FILE: lib/theme.ts`  
+   Export `theme` tokens (colors, radii, shadows, spacing, motion). Provide `applyTheme()` with optional `data-theme="dark"`.
+4) Components in `/components` (lean MVF set):
+   - `Navbar.tsx` — sticky, translucent `bg-white/85` + `backdrop-blur`, hairline bottom border; logo left; minimal nav right (About, Use Cases, FAQ) + primary CTA “Join waitlist”.
+   - `Hero.tsx` — oversized H1 + subhead; primary CTA (Join waitlist) + secondary CTA (Try a guided tour); optional floating “progress card” placeholder visual.
+   - `ProblemValue.tsx` — two-column: “The problem today” and “How we help” with 3 concise bullets each.
+   - `UseCases.tsx` — 3–6 cards (icon, title, 1–2 line body) targeting personas (e.g., Individuals, Coaches, Small Teams).
+   - `LogoWall.tsx` (optional) — 8–12 gray SVG placeholders for “teams that love wellness tools” (generic; can be toggled off).
+   - `WaitlistForm.tsx` — email + role select (Individual / Coach / Team) + optional text area. Client-side validation; success/failure states. Provide a single integration point (`/api/subscribe` placeholder).
+   - `QuickSurvey.tsx` — 1–2 opinionated questions (radio/likert) + optional free-text; posts to `/api/feedback`.
+   - `FeatureRequest.tsx` — minimal feature upvote list (static seed items) with optimistic UI; posts to `/api/feature-request`.
+   - `GuidedTourModal.tsx` — accessible modal with 3–4 slides illustrating the concept (static images/placeholders), keyboard nav, reduced-motion animations.
+   - `FAQ.tsx` — compact accordion (5–6 items).
+   - `Footer.tsx` — slim footer with links (About, Contact, Privacy, Terms) + small newsletter input (or reuse waitlist).
+   - Primitives: `Button.tsx`, `Badge.tsx`, `Card.tsx`.
+5) `// FILE: app/page.tsx`  
+   Assembles: Navbar → Hero → ProblemValue → UseCases → (optional LogoWall) → WaitlistForm → QuickSurvey → FeatureRequest → FAQ → Footer. **All text must be original** and friendly.
+6) `// FILE: app/api/route-placeholders.md`  
+   Document expected request bodies for `/api/subscribe`, `/api/feedback`, `/api/feature-request` (no real backend; just interfaces).
+7) `// FILE: README.md`  
+   Run instructions, environment variables to wire forms later (`NEXT_PUBLIC_POST_URL_*`), and theming notes.
+
+## Visual System (inspired-by, not copied)
+- **Colors** (CSS vars + Tailwind theme):
+  - `--color-bg: #FFFFFF`, `--color-fg: #0B1220`, `--color-muted: #F6F7FB`, `--color-border: #E6E8EE`
+  - **Primary**: `--color-primary: #0062FF` (+ derived scale 50/100/200/300/600/700/800)
+  - Optional subtle gradient for accents: `linear-gradient(135deg, #0062FF, #8B5CF6)`
+  - Semantic: success `#10B981`, warn `#F59E0B`, danger `#EF4444`, info `#0EA5E9`
+- **Type**: Inter (or system stack). Fluid scale:
+  - `--step--1: clamp(0.875rem, 0.8vw, 0.95rem)`
+  - `--step-0: clamp(1rem, 0.9vw, 1.06rem)`
+  - `--step-1: clamp(1.125rem, 1.1vw, 1.2rem)`
+  - `--step-2: clamp(1.25rem, 1.6vw, 1.5rem)`
+  - `--step-3: clamp(1.875rem, 2.6vw, 2.25rem)`
+  - `--step-4: clamp(2.75rem, 4.2vw, 3.5rem)` // H1
+- **Radii**: inputs 12px, cards 16px, pill buttons/badges.
+- **Shadows**: sm `0 1px 2px rgba(0,0,0,.05)`, md `0 8px 24px rgba(0,0,0,.08)`, lg `0 20px 40px rgba(0,0,0,.10)`
+- **Borders**: hairline `1px` `#E6E8EE` on header/cards/sections.
+- **Spacing**: container max `1200px`; section `py-24` (mobile `py-16`).
+- **Motion** (Framer): ease `[0.2, 0.8, 0.2, 1]`, 0.5–0.7s; reveal-on-scroll (stagger 0.1s, translateY 12px, opacity 0→1); hover scale 1.01 + shadow sm→md; all disabled for reduced motion.
+
+## Content Tone (original)
+- Hero H1: confident, outcome-focused (“Build healthier habits together.”)
+- Subhead: one or two lines; clear value and privacy-first reassurance.
+- CTA primary: **Join waitlist**
+- CTA secondary: **Try a guided tour**
+- Keep paragraphs short and scannable; tasteful playful asides only.
+
+## Component Notes
+- `Navbar`: translucent `bg-white/85` + `backdrop-blur`, sticky with 1px border; mobile menu sheet with focus trap.
+- `Hero`: oversized headline; two CTAs; optional floating analytics card (placeholder).
+- `ProblemValue`: contrast cards with icons; keep copy punchy (no jargon).
+- `UseCases`: 3–6 cards (Individuals, Coaches, Small Teams, Wellness Clubs, etc.).
+- `LogoWall`: gray placeholders only; toggle-able via prop.
+- **Forms**: client-side validation, disabled states, inline errors, success banners. Provide a `postTo()` helper stub for `/api/*`.
+- `GuidedTourModal`: keyboard accessible, `aria-modal`, `role="dialog"`, labelled by title; no autoplay if reduced-motion.
+- `FAQ`: concise; link to Privacy/Terms.
+- **Remove** pricing/testimonials entirely.
+
+## API (stubs only)
+No real data fetching. Provide TypeScript interfaces for:
+```ts
+type SubscribeBody = { email: string; role?: 'Individual'|'Coach'|'Team'; notes?: string };
+type FeedbackBody = { q1: string; q2?: string; free?: string };
+type FeatureVoteBody = { featureId: string; vote: 1|-1 };
+```
+Add `postTo(url: string, payload: unknown): Promise<{ ok: boolean }>` placeholder to be replaced later.
+
+## Theming / Brand Swap
+Single `theme` object in `/lib/theme.ts`. Changing `primary` and font updates everything. Include optional dark theme (slate-950 bg, blue/indigo accents) toggled via `data-theme`.
+
+## Output Format Rules
+- Print each file with a clear filename line, e.g. `// FILE: app/page.tsx` followed by a fenced code block.
+- Keep commentary minimal; small code comments only.
+- The sample page must import and render all sections with example data for:
+  - Brand: **ThriveSpace**
+  - Tagline: **Your wellness, powered by community**
+  - CTAs: **Join waitlist**, **Try a guided tour**
+  - Use case titles: generic and original
+  - FAQ items: original, short
+
+## Success Criteria
+- Good contrast; keyboard nav functional; visible focus rings.
+- Animations skip under `prefers-reduced-motion`.
+- Responsive 360px → 1440px+.
+- Builds and runs with `pnpm dev` or `npm run dev` after `npm i`.
